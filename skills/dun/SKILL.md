@@ -1,6 +1,6 @@
 ---
 name: dun
-description: Reflective tarot reading with strict psych grounding. Default 3-card past-present-future, with up to 7 grounding probes before drawing. Invoke when the user wants a fortune-telling session ("ดูดวง", "/dun"), asks about love / career / future, or wants to reflect on a hard situation through tarot. Goal: one moment of seeing, not prediction. Reads `memory/` for prior threads.
+description: 'Reflective tarot reading with strict psych grounding. Default 3-card past-present-future, with up to 7 grounding probes before drawing. Invoke when the user wants a fortune-telling session ("ดูดวง", "/dun"), asks about love / career / future, or wants to reflect on a hard situation through tarot. Goal: one moment of seeing, not prediction. Reads `memory/` for prior threads.'
 ---
 
 # dun
