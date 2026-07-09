@@ -19,7 +19,7 @@
 ## ติดตั้ง
 
 ```bash
-npx skills add your-username/dun
+npx skills add LogicCuteGuy/dun
 ```
 
 ## วิธีใช้

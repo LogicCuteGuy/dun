@@ -19,7 +19,7 @@ Structured reflection with a tarot frame — not prediction, not therapy, but a 
 ## Install
 
 ```bash
-npx skills add your-username/dun
+npx skills add LogicCuteGuy/dun
 ```
 
 ## Usage
