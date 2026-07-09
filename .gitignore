@@ -1,0 +1,11 @@
+# Personal reading history — never committed
+memory/*
+!memory/.gitkeep
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
