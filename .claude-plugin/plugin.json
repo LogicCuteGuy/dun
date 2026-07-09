@@ -1,6 +1,6 @@
 {
   "name": "dun-skills",
   "skills": [
-    "./skills/misc/dun"
+    "./dun"
   ]
 }
