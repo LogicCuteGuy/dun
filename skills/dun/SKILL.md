@@ -66,7 +66,9 @@ Each phase has a single completion criterion. Don't skip forward on a half-finis
 ## Phase details
 
 ### 0. Pre-flight
-- Read `memory/*.md` for sessions on related topic. Don't show the file — just absorb.
+- Run `python record.py --init` once if `memory/` is missing (idempotent).
+- Read `memory/MEMORY.md` — the single-file index of every prior session. Click into specific `<date>-<slug>.md` files when a thread is clearly related.
+- Don't show the file. Just absorb — quietly carry forward open threads.
 - Decide the mode:
   - **Healing mode** (default) — probes root, names pattern, ends in small action.
   - **Predictive mode** (only if user clearly wants a forecast) — lighter probes, mostly cards.
@@ -123,8 +125,37 @@ Each phase has a single completion criterion. Don't skip forward on a half-finis
 - Note that if a new reading is wanted, the next session will pick up where this left off (memory).
 
 ### 9. Memory
-- Append (don't overwrite) to `memory/<YYYY-MM-DD>-<topic-slug>.md`.
-- Schema:
+**Fire at every meaningful checkpoint, not just at session end.** Run after the first probe answer lands something real, after each `cards drawn`, and again at close — incremental is fine, the script handles dedup-by-date-and-slug.
+
+Invoke the recorder script — never hand-write the file. Always use the project-relative path so it works regardless of CWD:
+
+```bash
+python skills/dun/record.py --append <<'JSON'
+{
+  "topic": "first-session",
+  "question": "เราเคยถามอะไรไปบ้างนะ",
+  "mode": "healing",
+  "cards": {
+    "past": "The Fool (upright)",
+    "present": "The Magician (upright)",
+    "future": "The Star (upright)"
+  },
+  "user_state": "curious, testing the skill",
+  "probe_arc": ["Spiral: 'have we talked before?'"],
+  "insights": ["memory exists but was empty — fixed by adding record.py"],
+  "commitment": "use record.py after every reading",
+  "open_threads": ["past sessions still missing — backfill?"]
+}
+JSON
+```
+
+The script:
+- Creates `memory/<date>-<slug>.md` if it doesn't exist, else appends.
+- Maintains `memory/MEMORY.md` (table index) — phase 0 reads this single file.
+- Resolves symlinks so the write lands in the project's `memory/`, not a phantom copy.
+- Use the same `topic` across checkpoints in one session to keep one file. Use a fresh `topic` when the conversation pivots.
+
+Schema the script enforces (don't drift from this):
 
 ```markdown
 # <date> — <topic-slug>
