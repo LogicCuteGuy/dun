@@ -1,6 +1,10 @@
 # Personal reading history — never committed
-memory/*
+memory/
 !memory/.gitkeep
+
+# Claude Code session files
+.claude/
+.deep-think/
 
 # OS noise
 .DS_Store
