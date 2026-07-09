@@ -5,89 +5,89 @@ The 22 "big" cards. They mark major life themes, not daily events.
 ---
 
 ## 0. The Fool
-- **Upright**: new beginning, leap of faith, innocence, open road
-- **Reversed**: recklessness, hesitation, fear of the unknown
+- **Upright**: innocence, new beginnings, free spirit, leap of faith
+- **Reversed**: recklessness, taken advantage of, hesitation, fear of the unknown
 
 ## 1. The Magician
-- **Upright**: skill, will, tools at hand, manifestation
-- **Reversed**: manipulation, untapped potential, scattered focus
+- **Upright**: willpower, desire, creation, manifestation, tools at hand
+- **Reversed**: trickery, illusions, manipulation, untapped potential
 
 ## 2. The High Priestess
-- **Upright**: intuition, hidden knowledge, the unconscious
-- **Reversed**: secrets, ignored inner voice, withdrawal
+- **Upright**: intuitive, unconscious, inner voice, hidden knowledge
+- **Reversed**: lack of center, lost inner voice, repressed feelings, secrets
 
 ## 3. The Empress
-- **Upright**: abundance, nurturing, sensuality, growth
-- **Reversed**: creative block, dependence, neglect
+- **Upright**: motherhood, fertility, nature, abundance, nurturing
+- **Reversed**: dependence, smothering, emptiness, creative block
 
 ## 4. The Emperor
-- **Upright**: structure, authority, protection, order
-- **Reversed**: rigidity, control, dominance, brittle rule
+- **Upright**: authority, structure, control, fatherhood, protection
+- **Reversed**: tyranny, rigidity, coldness, dominance
 
 ## 5. The Hierophant
-- **Upright**: tradition, teaching, institutions, ritual
-- **Reversed**: dogma, empty convention, rebellion
+- **Upright**: tradition, conformity, morality, institutions, ritual
+- **Reversed**: rebellion, subversiveness, dogma, new approaches
 
 ## 6. The Lovers
-- **Upright**: love, choice, alignment, union
-- **Reversed**: disharmony, avoidance of choice, imbalance
+- **Upright**: partnerships, duality, union, love, choice
+- **Reversed**: loss of balance, one-sidedness, disharmony, avoidance of choice
 
 ## 7. The Chariot
-- **Upright**: willpower, momentum, victory through discipline
-- **Reversed**: loss of direction, scattered drive, force without focus
+- **Upright**: direction, control, willpower, victory through discipline
+- **Reversed**: lack of control, lack of direction, aggression, scattered drive
 
 ## 8. Strength
-- **Upright**: quiet courage, patience, soft power over brute
-- **Reversed**: self-doubt, suppression, brute force over finesse
+- **Upright**: inner strength, bravery, compassion, focus, quiet courage
+- **Reversed**: self-doubt, weakness, insecurity, suppression
 
 ## 9. The Hermit
-- **Upright**: solitude, inner guidance, the long view
-- **Reversed**: isolation, refusing help, lost withdrawal
+- **Upright**: contemplation, search for truth, inner guidance, solitude
+- **Reversed**: loneliness, isolation, lost your way, refusing help
 
 ## 10. Wheel of Fortune
-- **Upright**: cycles, turning point, luck in motion
-- **Reversed**: resisting change, repeating mistakes, delays
+- **Upright**: change, cycles, inevitable fate, turning point
+- **Reversed**: no control, clinging to control, bad luck, resisting change
 
 ## 11. Justice
-- **Upright**: fairness, accountability, cause-and-effect
-- **Reversed**: imbalance, dodging consequence, bias
+- **Upright**: cause and effect, clarity, truth, fairness
+- **Reversed**: dishonesty, unaccountability, unfairness, bias
 
 ## 12. The Hanged Man
-- **Upright**: surrender, new perspective, willing pause
-- **Reversed**: stuck, pointless sacrifice, martyr complex
+- **Upright**: sacrifice, release, new perspective, willing pause
+- **Reversed**: stalling, needless sacrifice, fear of sacrifice, martyr complex
 
 ## 13. Death
-- **Upright**: ending, transformation, necessary closure
-- **Reversed**: resistance to change, slow decay, holding on
+- **Upright**: end of cycle, beginnings, change, metamorphosis, transformation
+- **Reversed**: fear of change, holding on, stagnation, slow decay
 
 ## 14. Temperance
-- **Upright**: balance, alchemy, patient mixing
-- **Reversed**: imbalance, excess, mis-timing
+- **Upright**: middle path, patience, finding meaning, balance
+- **Reversed**: extremes, excess, lack of balance, mis-timing
 
 ## 15. The Devil
-- **Upright**: attachment, shadow, bondage (often self-imposed)
-- **Reversed**: liberation, naming the chain, waking up
+- **Upright**: addiction, materialism, attachment, shadow, bondage (often self-imposed)
+- **Reversed**: freedom, release, restoring control, liberation
 
 ## 16. The Tower
-- **Upright**: sudden collapse, revelation, structures failing
-- **Reversed**: averted disaster, slow fall, fear of collapse
+- **Upright**: sudden upheaval, broken pride, disaster, revelation
+- **Reversed**: disaster avoided, delayed disaster, fear of suffering, fear of collapse
 
 ## 17. The Star
-- **Upright**: hope, healing, renewal, calm after storm
-- **Reversed**: fatigue, dimmed hope, lost faith
+- **Upright**: hope, faith, rejuvenation, healing, calm after storm
+- **Reversed**: faithlessness, discouragement, insecurity, dimmed hope
 
 ## 18. The Moon
-- **Upright**: unclear waters, intuition, dreams, the unseen
-- **Reversed**: deception (self or other), fog lifting, repressed fear
+- **Upright**: unconscious, illusions, intuition, dreams, the unseen
+- **Reversed**: confusion, fear, misinterpretation, deception (self or other)
 
 ## 19. The Sun
-- **Upright**: joy, success, clarity, vitality
-- **Reversed**: delayed joy, over-exposure, forced brightness
+- **Upright**: joy, success, celebration, positivity, vitality
+- **Reversed**: negativity, depression, sadness, forced brightness
 
 ## 20. Judgement
-- **Upright**: awakening, reckoning, calling, rebirth
-- **Reversed**: refusal to hear, harsh self-judgement, stuck past
+- **Upright**: reflection, reckoning, awakening, calling, rebirth
+- **Reversed**: lack of self-awareness, doubt, self-loathing, harsh self-judgement
 
 ## 21. The World
-- **Upright**: completion, integration, a cycle closed
-- **Reversed**: almost there, loose ends, incomplete closure
+- **Upright**: fulfillment, harmony, completion, integration
+- **Reversed**: incompletion, no closure, loose ends, almost there

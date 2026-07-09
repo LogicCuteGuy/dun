@@ -46,10 +46,10 @@ RANKS = [
 ]
 
 REVERSED_CUE = {
-    "Wands": "blocked energy, burnout",
-    "Cups": "emotional avoidance, overflow",
-    "Swords": "confusion, avoidance of truth",
-    "Pentacles": "scarcity thinking, lost grip on body/health",
+    "Wands": "blocked energy, burnout, recklessness",
+    "Cups": "emotional loss, blocked creativity, emptiness",
+    "Swords": "confusion, brutality, chaos",
+    "Pentacles": "lost opportunity, disorganized, overwhelmed",
 }
 
 
@@ -104,28 +104,28 @@ def card_meaning(card):
 
     meanings = {
         # Major Arcana
-        "The Fool": ("new beginning, leap of faith", "recklessness, hesitation"),
-        "The Magician": ("skill, will, tools at hand", "manipulation, untapped potential"),
-        "The High Priestess": ("intuition, hidden knowledge", "secrets, ignored inner voice"),
-        "The Empress": ("abundance, nurturing, growth", "creative block, dependence"),
-        "The Emperor": ("structure, authority, protection", "rigidity, control, dominance"),
-        "The Hierophant": ("tradition, teaching, ritual", "dogma, empty convention"),
-        "The Lovers": ("love, choice, alignment", "disharmony, avoidance of choice"),
-        "The Chariot": ("willpower, momentum, victory", "loss of direction, scattered drive"),
-        "Strength": ("quiet courage, patience, soft power", "self-doubt, suppression"),
-        "The Hermit": ("solitude, inner guidance, the long view", "isolation, refusing help"),
-        "Wheel of Fortune": ("cycles, turning point, luck", "resisting change, repeating mistakes"),
-        "Justice": ("fairness, accountability, cause-and-effect", "imbalance, dodging consequence"),
-        "The Hanged Man": ("surrender, new perspective, willing pause", "stuck, pointless sacrifice"),
-        "Death": ("ending, transformation, necessary closure", "resistance to change, holding on"),
-        "Temperance": ("balance, alchemy, patient mixing", "imbalance, excess, mis-timing"),
-        "The Devil": ("attachment, shadow, self-imposed bondage", "liberation, naming the chain"),
-        "The Tower": ("sudden collapse, revelation", "averted disaster, slow fall"),
-        "The Star": ("hope, healing, renewal, calm after storm", "fatigue, dimmed hope"),
-        "The Moon": ("unclear waters, intuition, the unseen", "deception, fog lifting"),
-        "The Sun": ("joy, success, clarity, vitality", "delayed joy, forced brightness"),
-        "Judgement": ("awakening, reckoning, calling", "refusal to hear, harsh self-judgement"),
-        "The World": ("completion, integration, a cycle closed", "almost there, loose ends"),
+        "The Fool": ("innocence, new beginnings, free spirit", "recklessness, taken advantage of, hesitation"),
+        "The Magician": ("willpower, desire, creation, manifestation", "trickery, illusions, manipulation"),
+        "The High Priestess": ("intuitive, unconscious, inner voice", "lack of center, lost inner voice, repressed feelings"),
+        "The Empress": ("motherhood, fertility, nature, abundance", "dependence, smothering, emptiness"),
+        "The Emperor": ("authority, structure, control, fatherhood", "tyranny, rigidity, coldness"),
+        "The Hierophant": ("tradition, conformity, morality, institutions", "rebellion, subversiveness, dogma"),
+        "The Lovers": ("partnerships, duality, union, love", "loss of balance, one-sidedness, disharmony"),
+        "The Chariot": ("direction, control, willpower, victory", "lack of control, lack of direction, aggression"),
+        "Strength": ("inner strength, bravery, compassion, focus", "self-doubt, weakness, insecurity"),
+        "The Hermit": ("contemplation, search for truth, inner guidance", "loneliness, isolation, lost your way"),
+        "Wheel of Fortune": ("change, cycles, inevitable fate", "no control, clinging to control, bad luck"),
+        "Justice": ("cause and effect, clarity, truth, fairness", "dishonesty, unaccountability, unfairness"),
+        "The Hanged Man": ("sacrifice, release, new perspective", "stalling, needless sacrifice, fear of sacrifice"),
+        "Death": ("end of cycle, beginnings, change, metamorphosis", "fear of change, holding on, stagnation"),
+        "Temperance": ("middle path, patience, finding meaning", "extremes, excess, lack of balance"),
+        "The Devil": ("addiction, materialism, attachment, shadow", "freedom, release, restoring control"),
+        "The Tower": ("sudden upheaval, broken pride, disaster", "disaster avoided, delayed disaster, fear of suffering"),
+        "The Star": ("hope, faith, rejuvenation, healing", "faithlessness, discouragement, insecurity"),
+        "The Moon": ("unconscious, illusions, intuition, dreams", "confusion, fear, misinterpretation"),
+        "The Sun": ("joy, success, celebration, positivity", "negativity, depression, sadness"),
+        "Judgement": ("reflection, reckoning, awakening, calling", "lack of self-awareness, doubt, self-loathing"),
+        "The World": ("fulfillment, harmony, completion", "incompletion, no closure, loose ends"),
     }
 
     if name in meanings:
@@ -136,27 +136,27 @@ def card_meaning(card):
     rank = card["rank"]
 
     rank_stage = {
-        "Ace": "seed of potential",
-        "2": "choice and duality",
-        "3": "first growth",
-        "4": "stability and holding",
-        "5": "friction and conflict",
-        "6": "flow and harmony",
-        "7": "assessment and stance",
-        "8": "momentum and mastery",
-        "9": "near the end of a cycle",
-        "10": "full cycle, completion",
-        "Page": "a message, a beginner's spark",
-        "Knight": "action, pursuit, drive",
-        "Queen": "mastery within, receptive power",
-        "King": "mastery in the world, authority",
+        "Ace": "seed of potential, new feelings",
+        "2": "choice, duality, partnership",
+        "3": "expansion, first growth, community",
+        "4": "foundation, stability, contemplation",
+        "5": "friction, conflict, competition",
+        "6": "flow, harmony, transition",
+        "7": "assessment, perseverance, stance",
+        "8": "momentum, rapid action, mastery",
+        "9": "culmination, resilience, near-end",
+        "10": "completion, full cycle, accomplishment",
+        "Page": "curiosity, a beginner's spark, message",
+        "Knight": "action, adventure, pursuit",
+        "Queen": "compassion, maturity, receptive power",
+        "King": "leadership, authority, big picture",
     }
 
     suit_energy = {
-        "Wands": "energy, creativity, will",
-        "Cups": "emotion, relationships, the heart",
-        "Swords": "thought, conflict, truth",
-        "Pentacles": "body, money, the material world",
+        "Wands": "energy, drive, willpower, creativity",
+        "Cups": "emotion, feelings, intuition, relationships",
+        "Swords": "logic, ideas, intellect, communication",
+        "Pentacles": "nature, body, material world, stability",
     }
 
     stage = rank_stage.get(rank, "")
