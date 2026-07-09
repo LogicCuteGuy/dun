@@ -30,30 +30,6 @@ npx skills add LogicCuteGuy/dun
 
 Then answer the questions. The more honest you are, the deeper the reading goes.
 
-## Layout
-
-```
-dun/
-├── .claude-plugin/plugin.json
-├── CLAUDE.md
-├── README.md
-├── scripts/
-│   ├── link-skills.sh
-│   └── list-skills.sh
-└── skills/
-    └── dun/
-        ├── SKILL.md
-        ├── draw.py
-        ├── cards-major.md
-        ├── cards-minor.md
-        ├── spreads.md
-        ├── physics.md
-        ├── questions.md
-        ├── healing.md
-        ├── boundaries.md
-        └── memory/
-```
-
 ## What it is not
 
 - ❌ Not therapy
