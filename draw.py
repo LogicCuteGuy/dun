@@ -1,0 +1,215 @@
+#!/usr/bin/env python3
+"""
+dun — deterministic tarot card draw
+
+Takes a text seed (the user's question) and draws cards deterministically.
+Same seed = same draw every time — like shuffling while thinking of the same question.
+
+Usage:
+    python draw.py "เรื่องความสัมพันธ์"
+    python draw.py "รัก" --count 5
+    python draw.py "งาน" --json
+"""
+
+import hashlib
+import random
+import sys
+import io
+import json
+import argparse
+
+# Force UTF-8 output on Windows
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
+
+
+# ─── Deck definition ───────────────────────────────────────────────
+
+MAJOR = [
+    "The Fool", "The Magician", "The High Priestess", "The Empress",
+    "The Emperor", "The Hierophant", "The Lovers", "The Chariot",
+    "Strength", "The Hermit", "Wheel of Fortune", "Justice",
+    "The Hanged Man", "Death", "Temperance", "The Devil",
+    "The Tower", "The Star", "The Moon", "The Sun",
+    "Judgement", "The World",
+]
+
+SUITS = {
+    "Wands": "Fire",
+    "Cups": "Water",
+    "Swords": "Air",
+    "Pentacles": "Earth",
+}
+
+RANKS = [
+    "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+    "Page", "Knight", "Queen", "King",
+]
+
+REVERSED_CUE = {
+    "Wands": "blocked energy, burnout",
+    "Cups": "emotional avoidance, overflow",
+    "Swords": "confusion, avoidance of truth",
+    "Pentacles": "scarcity thinking, lost grip on body/health",
+}
+
+
+def build_deck():
+    """Build a full 78-card deck."""
+    deck = []
+    for name in MAJOR:
+        deck.append({"name": name, "type": "major", "suit": None, "rank": None})
+    for suit in SUITS:
+        for rank in RANKS:
+            deck.append({
+                "name": f"{rank} of {suit}",
+                "type": "minor",
+                "suit": suit,
+                "rank": rank,
+            })
+    return deck
+
+
+def seed_from_text(text):
+    """Hash text to a deterministic integer seed."""
+    h = hashlib.sha256(text.encode("utf-8")).hexdigest()
+    return int(h[:16], 16)
+
+
+def draw(seed_text, count=3):
+    """
+    Draw `count` cards from a shuffled deck, seeded by `seed_text`.
+    Each card has ~50% chance of being reversed.
+    """
+    seed = seed_from_text(seed_text)
+    rng = random.Random(seed)
+
+    deck = build_deck()
+    rng.shuffle(deck)
+
+    drawn = []
+    for i in range(count):
+        card = deck[i].copy()
+        card["reversed"] = rng.random() < 0.5
+        card["position"] = i + 1
+        drawn.append(card)
+
+    return drawn
+
+
+def card_meaning(card):
+    """Return upright/reversed meaning for a card (brief)."""
+    name = card["name"]
+    reversed = card["reversed"]
+    orientation = "reversed" if reversed else "upright"
+
+    meanings = {
+        # Major Arcana
+        "The Fool": ("new beginning, leap of faith", "recklessness, hesitation"),
+        "The Magician": ("skill, will, tools at hand", "manipulation, untapped potential"),
+        "The High Priestess": ("intuition, hidden knowledge", "secrets, ignored inner voice"),
+        "The Empress": ("abundance, nurturing, growth", "creative block, dependence"),
+        "The Emperor": ("structure, authority, protection", "rigidity, control, dominance"),
+        "The Hierophant": ("tradition, teaching, ritual", "dogma, empty convention"),
+        "The Lovers": ("love, choice, alignment", "disharmony, avoidance of choice"),
+        "The Chariot": ("willpower, momentum, victory", "loss of direction, scattered drive"),
+        "Strength": ("quiet courage, patience, soft power", "self-doubt, suppression"),
+        "The Hermit": ("solitude, inner guidance, the long view", "isolation, refusing help"),
+        "Wheel of Fortune": ("cycles, turning point, luck", "resisting change, repeating mistakes"),
+        "Justice": ("fairness, accountability, cause-and-effect", "imbalance, dodging consequence"),
+        "The Hanged Man": ("surrender, new perspective, willing pause", "stuck, pointless sacrifice"),
+        "Death": ("ending, transformation, necessary closure", "resistance to change, holding on"),
+        "Temperance": ("balance, alchemy, patient mixing", "imbalance, excess, mis-timing"),
+        "The Devil": ("attachment, shadow, self-imposed bondage", "liberation, naming the chain"),
+        "The Tower": ("sudden collapse, revelation", "averted disaster, slow fall"),
+        "The Star": ("hope, healing, renewal, calm after storm", "fatigue, dimmed hope"),
+        "The Moon": ("unclear waters, intuition, the unseen", "deception, fog lifting"),
+        "The Sun": ("joy, success, clarity, vitality", "delayed joy, forced brightness"),
+        "Judgement": ("awakening, reckoning, calling", "refusal to hear, harsh self-judgement"),
+        "The World": ("completion, integration, a cycle closed", "almost there, loose ends"),
+    }
+
+    if name in meanings:
+        return meanings[name][0] if not reversed else meanings[name][1]
+
+    # Minor arcana — suit + rank logic
+    suit = card["suit"]
+    rank = card["rank"]
+
+    rank_stage = {
+        "Ace": "seed of potential",
+        "2": "choice and duality",
+        "3": "first growth",
+        "4": "stability and holding",
+        "5": "friction and conflict",
+        "6": "flow and harmony",
+        "7": "assessment and stance",
+        "8": "momentum and mastery",
+        "9": "near the end of a cycle",
+        "10": "full cycle, completion",
+        "Page": "a message, a beginner's spark",
+        "Knight": "action, pursuit, drive",
+        "Queen": "mastery within, receptive power",
+        "King": "mastery in the world, authority",
+    }
+
+    suit_energy = {
+        "Wands": "energy, creativity, will",
+        "Cups": "emotion, relationships, the heart",
+        "Swords": "thought, conflict, truth",
+        "Pentacles": "body, money, the material world",
+    }
+
+    stage = rank_stage.get(rank, "")
+    energy = suit_energy.get(suit, "")
+
+    if reversed:
+        cue = REVERSED_CUE.get(suit, "")
+        return f"{stage} in {energy} — turned inward, {cue}"
+    else:
+        return f"{stage} in {energy}"
+
+
+def format_output(cards, output_json=False):
+    """Format drawn cards for display."""
+    if output_json:
+        result = []
+        for c in cards:
+            result.append({
+                "position": c["position"],
+                "name": c["name"],
+                "reversed": c["reversed"],
+                "orientation": "reversed" if c["reversed"] else "upright",
+                "meaning": card_meaning(c),
+            })
+        return json.dumps(result, ensure_ascii=False, indent=2)
+
+    lines = []
+    labels = {1: "Past", 2: "Present", 3: "Future"} if len(cards) == 3 else {}
+
+    for c in cards:
+        pos = c["position"]
+        orientation = "reversed" if c["reversed"] else "upright"
+        label = labels.get(pos, f"Card {pos}")
+        meaning = card_meaning(c)
+        lines.append(f"[ {label} ] {c['name']} ({orientation})")
+        lines.append(f"  > {meaning}")
+        lines.append("")
+
+    return "\n".join(lines)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="dun — deterministic tarot card draw")
+    parser.add_argument("seed", help="Text seed (the user's question)")
+    parser.add_argument("--count", "-n", type=int, default=3, choices=[1, 3, 5, 7],
+                        help="Number of cards to draw (default: 3)")
+    parser.add_argument("--json", "-j", action="store_true",
+                        help="Output as JSON")
+
+    args = parser.parse_args()
+    cards = draw(args.seed, args.count)
+    print(format_output(cards, args.json))
+
+
+if __name__ == "__main__":
+    main()
